@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ a.button {
+    background: transparent url('bg_button_a.gif') no-repeat scroll top right;
+    color: rgb(168, 2, 66);
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px;
+    text-decoration: underline;
+    border: black;
+  }
