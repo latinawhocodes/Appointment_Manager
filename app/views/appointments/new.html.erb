@@ -5,6 +5,21 @@
     Time: <%= d.time_field :time %>
 
     Reason for Visit:<br>
-    <%= d.text_area :reason%>
+    <%= d.text_area :reason %>
 
+    Vitals:
+    Weight: <%= d.text_field :weight %>
+    Blood Pressure(Systolic/Diastolic): <%= d.text_field :blood_pressure %>
+    Temperature: <%= d.text_field :temperature %>
 
+    Medications: <%= d.text_area :medications %>
+    Visit Summary: <%= d.text_area :summary %>
+
+    <% if @doctor %>
+        <h4>Dr. <%= @doctor.first_name + " " + @doctor.last_name %>
+    <% else %>
+        <% render partial: "doctorform", locals: { d: form_builder } %>
+    <% end %>
+
+<%= d.submit %>
+<% end %>
