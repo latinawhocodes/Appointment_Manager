@@ -1,0 +1,9 @@
+<h1>Welcome to Appointment Tracker!</h1>
+
+<% if !logged_in? %>
+    <%= link_to "Log In", '/login' %>
+    <%= link_to "Sign Up", '/signup' %>
+    <%= "OmniAuth Login Pending" %>
+<% else %>
+    <%= display_welcome %>
+<% end %>
