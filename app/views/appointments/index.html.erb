@@ -1,13 +1,9 @@
-<%if @doctor %>
-    <h2>Appointments for Dr. <%= @doctor.first_name + " " + @doctor.last_name %></h2>
-<% elsif @patient %>
-    <h2>Appointments Scheduled for: <%= @patient.first_name + " " + @patient.last_name %>
-<% end %>
-
 <ul>
-    <% @appointments.order(:date).each do |a| %>
-        <li>
-            <%= a.first_name + " " + a.last_name %> assisted Dr. <%= link_to a.doctor.first_name + " " + a.doctor.last_name %> during the appointment with: <%= link_to a.patient.name, patient_path(a.patient) %>
-        </li><br><br>
-    <% end %>
+<% @appointments.order(:date).each do |a| %>
+  <li>
+    <%= link_to "Dr." + a.doctor.last_name, doctor_path(a.doctor)%>
+    appointment with : <%= link_to a.patient.first_name + " " + a.patient.last_name, patient_path(a.patient)%> on: <%= a.date %> | <%= a.time %> created by: <%= a.username %>
+
+  </li><br>
+<% end %>
 </ul>

@@ -25,6 +25,12 @@ class AppointmentsController < ApplicationController
         else
             @appointment = Appointment.new(appointment_params)
         end
+
+         if @appointment.save
+            redirect_to appointment_path(@appointment)
+        else
+            render :new
+        end
     end
 
     def show
@@ -55,7 +61,15 @@ class AppointmentsController < ApplicationController
             :medications,
             :summary,
             :patient_id,
-            :doctor_id
+            :doctor_id,
+            doctor_attributes:[
+                :first_name,
+                :last_name,
+                :specialty,
+                :gender,
+                :email,
+                :admin_id
+            ]
         )
     end
 end

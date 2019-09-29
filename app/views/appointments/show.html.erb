@@ -1,8 +1,9 @@
-<h2>Dr. <%= @appointment.doctor.first_name + " " + @appointment.doctor.last_name %></h2>
-<h5><%= @appointment.doctor.email %>
+<h2>Dr. <%= @appointment.doctor.first_name + " " + @appointment.doctor.last_name %></h2><h2>with <%= @appointment.patient.first_name + " " + @appointment.patient.last_name %></h2><br>
 
-<h3>Department of <%= @appointment.doctor.specialty %>
+<h5><br><%= @appointment.doctor.email %></h5>
 
-<h4>Appointment for: <%= @appointment.date + " at " @appointment.time %>
+<h3>Department of <%= @appointment.doctor.specialty %></h3>
 
-<h4>Reason for Visit: <%= @appointment.reason %>
+<h4>Appointment at: <%= @appointment.date + @appointment.time %></h4>
+
+<h4>Reason for Visit: <%= @appointment.reason %></h4>
