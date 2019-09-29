@@ -6,4 +6,5 @@ class Patient < ApplicationRecord
     before_save do |doctor|
 
     end
+
 end
