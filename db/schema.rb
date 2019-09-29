@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "admins", force: :cascade do |t|
     t.string "username"
@@ -18,6 +18,50 @@ ActiveRecord::Schema.define(version: 1) do
     t.string "name"
     t.string "email"
     t.integer "employee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "date"
+    t.datetime "time"
+    t.text "reason"
+    t.float "weight"
+    t.float "temperature"
+    t.string "blood_pressure"
+    t.text "medications"
+    t.text "summary"
+    t.integer "patient_id"
+    t.integer "doctor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
+  end
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "specialty"
+    t.string "gender"
+    t.string "email"
+    t.integer "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "gender"
+    t.string "email"
+    t.string "insurance"
+    t.text "allergies"
+    t.text "patient_notes"
+    t.text "prescriptions"
+    t.string "status"
+    t.integer "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
