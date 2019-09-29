@@ -15,11 +15,7 @@
     Reason for Visit:<br>
     <%= d.text_area :reason %><br><br>
 
-    <% if @doctor %>
-        <h4>Dr. <%= @doctor.first_name + " " + @doctor.last_name %>
-    <% else %>
-        <% doctor_form(d) %>
-    <% end %>
+    <%= doctor_form(d) %>
 
 <%= d.submit %>
 <% end %>
