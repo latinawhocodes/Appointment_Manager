@@ -1,11 +1,13 @@
 class AppointmentsController < ApplicationController
 
     def index
-        @appointments = @doctor.appointments if params[:doctor_id] && find_doctor
-
-        @appointments = @patient.appointments if params[:patient_id] && find_patient
-
-        @appointments = Appointment.all
+        if params[:doctor_id] && find_doctor
+            @appointments = @doctor.appointments
+        elsif params[:patient_id] && find_patient
+            @appointments = @patient.appointments
+        else
+            @appointments = Appointment.all
+        end
     end
 
     def new
@@ -23,6 +25,10 @@ class AppointmentsController < ApplicationController
         else
             @appointment = Appointment.new(appointment_params)
         end
+    end
+
+    def show
+        find_appointment
     end
 
     private
