@@ -1,0 +1,21 @@
+<%= form_for @patient do |p| %>
+
+  <h4>Personal Information:</h4>
+    First Name: <%= p.text_field :first_name %><br><br>
+    Last Name: <%= p.text_field :last_name %><br><br>
+    Age <%= p.text_field :age %><br><br>
+    Gender: <%= p.select :gender,options_for_select(["Male","Female"]), include_blank: true %><br><br>
+
+  <h4>Contact Information:</h4>
+    Email Address: <%= p.email_field :email %><br><br>
+
+  <h4>Medical Information: </h4>
+    Insurance: <%= p.text_field :insurance %><br><br>
+    Active: <%= p.select :status, options_for_select(["Active", "Inactive"]) %><br><br><br><br>
+
+    Patient Notes: <%= p.text_area :patient_notes %><br><br>
+    Allergies: <%= p.text_area :allergies %><br><br>
+    Prescriptions: <%= p.text_area :prescriptions %><br><br>
+
+<%= p.submit %>
+<% end %>
