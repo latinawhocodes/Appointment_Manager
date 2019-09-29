@@ -6,11 +6,11 @@ Select a Patient: <%= d.collection_select :patient_id, Patient.all, :id, :name, 
 
 <h3>OR Create a New Doctor: </h3>
 
-    <%= f.fields_for :doctor do |d| %>
+    <%= d.fields_for :doctor do |d| %>
         First Name: <%= d.text_field :first_name %><br><br>
         Last Name: <%= d.text_field :last_name %><br><br>
         Gender: <%= d.select :gender,options_for_select(["Female", "Male"]), include_blank: true %><br><br>
         Email: <%= d.email_field :email %><br><br>
         Specialty: <%= d.text_field :specialty %><br><br>
-    <%= f.hidden_field :admin_id, value: current_admin.id %>
+    <%= d.hidden_field :admin_id, value: current_admin.id %>
     <% end %>

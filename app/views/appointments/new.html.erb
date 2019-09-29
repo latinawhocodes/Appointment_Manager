@@ -1,19 +1,19 @@
 <h1>Create a New Appointment</h1>
 
 <%= form_for [@doctor, @appointment] do |d| %>
-    Date: <%= d.date_field :date %>
-    Time: <%= d.time_field :time %>
-
-    Reason for Visit:<br>
-    <%= d.text_area :reason %>
+    Date: <%= d.date_field :date %><br><br>
+    Time: <%= d.time_field :time %><br><br>
 
     Vitals:
-    Weight: <%= d.text_field :weight %>
-    Blood Pressure(Systolic/Diastolic): <%= d.text_field :blood_pressure %>
-    Temperature: <%= d.text_field :temperature %>
+    Weight: <%= d.text_field :weight %><br><br>
+    Blood Pressure(Systolic/Diastolic): <%= d.text_field :blood_pressure %><br><br>
+    Temperature: <%= d.text_field :temperature %><br><br>
 
-    Medications: <%= d.text_area :medications %>
-    Visit Summary: <%= d.text_area :summary %>
+    Medications:<br> <%= d.text_area :medications %><br><br>
+    Visit Summary:<br> <%= d.text_area :summary %><br><br>
+
+    Reason for Visit:<br>
+    <%= d.text_area :reason %><br><br>
 
     <% if @doctor %>
         <h4>Dr. <%= @doctor.first_name + " " + @doctor.last_name %>
