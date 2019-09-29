@@ -1,18 +1,17 @@
-<h2><%= @patient.first_name + " " + @patient.last_name %><br><br>
-<%= link_to "Edit Patient", edit_patient_path(@patient)
 
+<h2><%= @patient.first_name + " " + @patient.last_name %><h2><br><br>
 
-<h5><%= @patient.email %><br><br>
 
 <h5>
-    <%= @patient.age %> | <%= @patient.gender %><br><br>
-</h5>
+    <%= @patient.email %><br><br>
+    <%= @patient.age %> | <%= @patient.gender %>
 
-<h5>
-    Insurance:<br> <%= @patient.insurance %><br><br>
+    Insurance: <%= @patient.insurance %><br><br>
 
-    Allergies:<br> <%= @patient.allergies %><br><br>
+    Allergies: <%= @patient.allergies %><br><br>
 
-    Prescriptions: <br>
-    <%= @patient.prescriptions %>
+    Prescriptions:
+    <%= @patient.prescriptions %><br><br>
+
+    <%= link_to "Edit Patient", edit_patient_path(@patient) %>
 </h5>
