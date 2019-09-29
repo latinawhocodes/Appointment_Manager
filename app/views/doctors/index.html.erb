@@ -1,0 +1,13 @@
+<h1>All Doctors</h1>
+
+<ul>
+<% @doctors.each do |doctor| %>
+    <li>
+        <strong>Dr. <%= doctor.first_name + " " + doctor.last_name %></strong> -
+        <%=doctor.specialty %> --> created by: <%= doctor.admin.username %> |
+        <%= link_to "See all appointments", doctor_appointments_path(doctor)%> |
+        <%= link_to "Add an appointment", new_doctor_appointment_path(doctor)%> |
+        <%= doctor.appointments.size %>
+    </li>
+<% end %>
+</ul>
