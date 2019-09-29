@@ -1,8 +1,8 @@
 
 
-Select a Doctor: <%= f.collection_select :doctor_id, Doctor.all, :id, :name, include_blank: true %><br><br>
+Select a Doctor: <%= d.collection_select :doctor_id, Doctor.all, :id, :name, include_blank: true %><br><br>
 
-Select a Patient: <%= f.collection_select :patient_id, Patient.all, :id, :name, include_blank: true %><br><br>
+Select a Patient: <%= d.collection_select :patient_id, Patient.all, :id, :name, include_blank: true %><br><br>
 
 <h3>OR Create a New Doctor: </h3>
 

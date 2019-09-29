@@ -13,6 +13,12 @@
     <% if logged_in? %>
       <nav class='navbar'>
         <%= link_to 'Logout', '/logout', method: :delete, class:'button'%>
+      <%= link_to 'Patients', patients_path, class:'button'%>
+      <%= link_to 'Create a Patient', new_patient_path, class:'button'%>
+      <%= link_to 'Doctors', doctors_path, class:'button'%>
+      <%= link_to 'Create a Doctor', new_doctor_path, class:'button'%>
+      <%= link_to 'Appointments', appointments_path, class:'button'%>
+      <%= link_to 'Create an Appointment', new_appointment_path, class:'button'%>
     <% else %>
         <%= link_to 'Log In', login_path %>
     <% end %>
