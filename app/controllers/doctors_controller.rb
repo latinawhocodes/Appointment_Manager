@@ -32,6 +32,10 @@ class DoctorsController < ApplicationController
     end
 
     private
+    def find_doctor
+        @doctor = Doctor.find_by(id: params[:id])
+    end
+
     def doctor_params
         params.require(:doctor).permit(
             :first_name,
