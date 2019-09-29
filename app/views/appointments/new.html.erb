@@ -18,7 +18,7 @@
     <% if @doctor %>
         <h4>Dr. <%= @doctor.first_name + " " + @doctor.last_name %>
     <% else %>
-        <% render partial: "doctorform" %>
+        <% doctor_form(d) %>
     <% end %>
 
 <%= d.submit %>
