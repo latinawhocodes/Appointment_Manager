@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get '/signup', to: 'admins#new'
   post '/signup', to: 'admins#create'
 
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
 end
