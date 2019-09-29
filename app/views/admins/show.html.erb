@@ -1,5 +1,8 @@
-<%= display_welcome %>
-<%= display_admin_details %>
+<h2>Welcome <%= @admin.name%>!</h2>
+
+<h5>Email: <%= @admin.email %></h5>
+<h5>Username: <%= @admin.username %></h5>
+<h6>Employee ID: <%= @admin.employee_id %></h6>
 
 <ul>
     <% @admin.patients.each do |patient| %>
