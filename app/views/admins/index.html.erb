@@ -1,0 +1,8 @@
+<h1>All Admins</h1>
+<ul>
+<% @admins.each do |a| %>
+  <li>
+    <%= link_to a.username, admin_path(a) %> - currently helping <%= a.patients.size %> patients
+  </li><br>
+<% end %>
+</ul>
