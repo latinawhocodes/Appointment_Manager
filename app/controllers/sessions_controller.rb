@@ -21,8 +21,19 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
+    def omniauth
+        @admin = Admin.from_omniauth(auth)
+        @admin.save
+        session[:admin_id] = @admin.id
+        redirect_to root_path
+      end
+
     private
     def find_admin
         @admin = Admin.find_by(username: params[:admin][:username])
+    end
+
+    def auth
+        request.env['omniauth.auth']
     end
 end
