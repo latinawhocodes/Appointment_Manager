@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     def create
         find_admin
-        if @admin.authenticate(params[:admin][:password])
+        if @admin && @admin.authenticate(params[:admin][:password])
             session[:admin_id] = @admin.id
             redirect_to admin_path(@admin.id)
         else
