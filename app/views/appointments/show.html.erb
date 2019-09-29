@@ -1,0 +1,8 @@
+<h2>Dr. <%= @appointment.doctor.first_name + " " + @appointment.doctor.last_name %></h2>
+<h5><%= @appointment.doctor.email %>
+
+<h3>Department of <%= @appointment.doctor.specialty %>
+
+<h4>Appointment for: <%= @appointment.date + " at " @appointment.time %>
+
+<h4>Reason for Visit: <%= @appointment.reason %>
