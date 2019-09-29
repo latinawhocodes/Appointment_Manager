@@ -1,0 +1,10 @@
+<h2>Add a New Doctor</h2>
+
+<%= form_for @doctor do |d| %>
+    First Name: <%= d.text_field :first_name %><br><br>
+    Last Name: <%= d.text_field :last_name %><br><br>
+    Specialty: <%= d.text_field :specialty %><br><br>
+    Gender: <%= d.select :gender,options_for_select(["Male", "Female"]), include_blank: true %><br><br>
+    Email: <%= d.email_field :email %><br><br>
+<%= d.submit %>
+<% end %>
