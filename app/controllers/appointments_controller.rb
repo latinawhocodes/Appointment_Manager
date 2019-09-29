@@ -43,7 +43,6 @@ class AppointmentsController < ApplicationController
             :date,
             :time,
             :reason,
-            :status,
             :weight,
             :temperature,
             :blood_pressure,

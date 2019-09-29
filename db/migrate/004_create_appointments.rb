@@ -4,7 +4,6 @@ class CreateAppointments < ActiveRecord::Migration[5.2]
             t.datetime :date
             t.datetime :time
             t.text :reason
-            t.string :status
 
             t.float :weight
             t.float :temperature

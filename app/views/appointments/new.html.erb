@@ -1,3 +1,10 @@
 <h1>Create a New Appointment</h1>
 
 <%= form_for [@doctor, @appointment] do |d| %>
+    Date: <%= d.date_field :date %>
+    Time: <%= d.time_field :time %>
+
+    Reason for Visit:<br>
+    <%= d.text_area :reason%>
+
+
