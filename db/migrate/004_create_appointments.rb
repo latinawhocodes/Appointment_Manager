@@ -10,7 +10,6 @@ class CreateAppointments < ActiveRecord::Migration[5.2]
             t.string :blood_pressure
 
             t.text :medications
-            t.text :to_do
             t.text :summary
 
             t.belongs_to :patient, foreign_key: true

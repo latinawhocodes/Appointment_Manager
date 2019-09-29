@@ -3,6 +3,7 @@ class PatientsController < ApplicationController
 
     private
     def find_patient
+        @patient = Patient.find_by(id: params[:id])
     end
 
     def patient_params
