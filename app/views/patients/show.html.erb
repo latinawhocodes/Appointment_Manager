@@ -1,6 +1,7 @@
 <h2><%= @patient.first_name + " " + @patient.last_name %><br><br>
+<%= link_to "Edit Patient", edit_patient_path(@patient)
 
-<div>
+
 <h5><%= @patient.email %><br><br>
 
 <h5>
@@ -15,4 +16,3 @@
     Prescriptions: <br>
     <%= @patient.prescriptions %>
 </h5>
-</div>
