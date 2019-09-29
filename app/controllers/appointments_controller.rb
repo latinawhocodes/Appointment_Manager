@@ -18,12 +18,11 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-    end
-
-    def edit
-    end
-
-    def update
+        if params[:doctor_id] && find_doctor
+            @appointment = @doctor.appointments.build(appointment_params)
+        else
+            @appointment = Appointment.new(appointment_params)
+        end
     end
 
     private
