@@ -5,7 +5,7 @@
     <% @admin.patients.each do |patient| %>
         <li>
             <%= patient.last_name %>, <%= patient.first_name %><br>
-            <%= patient.age %> years old | <%= patient.gender %>
+            <%= patient.age %> years old
         </li>
     <% end %>
 </ul>
