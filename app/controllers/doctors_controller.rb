@@ -1,4 +1,6 @@
 class DoctorsController < ApplicationController
+    before_action :require_login
+    before_action :find_doctor, only: [:create, :edit, :update, :show]
 
     def index
         @doctors = Doctor.all
@@ -9,7 +11,6 @@ class DoctorsController < ApplicationController
     end
 
     def create
-        find_doctor
         @doctor = current_admin.created_doctors.build(doctor_params)
         if @doctor.save
             redirect_to doctor_path(@doctor)
@@ -19,11 +20,9 @@ class DoctorsController < ApplicationController
     end
 
     def edit
-        find_doctor
     end
 
     def update
-        find_doctor
         if @doctor.update(doctor_params)
             redirect_to doctor_path(@doctor)
         else
@@ -32,7 +31,6 @@ class DoctorsController < ApplicationController
     end
 
     def show
-        find_doctor
     end
 
     private

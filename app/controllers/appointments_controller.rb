@@ -1,9 +1,12 @@
 class AppointmentsController < ApplicationController
+    before_action :require_login
+    before_action :find_doctor
+    before_action :find_patient
 
     def index
-        if params[:doctor_id] && find_doctor
+        if params[:doctor_id]
             @appointments = @doctor.appointments
-        elsif params[:patient_id] && find_patient
+        elsif params[:patient_id]
             @appointments = @patient.appointments
         else
             @appointments = Appointment.all
@@ -11,7 +14,7 @@ class AppointmentsController < ApplicationController
     end
 
     def new
-        if params[:doctor_id] && find_doctor
+        if params[:doctor_id]
             @appointment = @doctor.appointments.build
         else
             @appointment = Appointment.new
@@ -20,12 +23,12 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        if params[:doctor_id] && find_doctor
+        if params[:doctor_id]
             @appointment = @doctor.appointments.build(appointment_params)
         else
             @appointment = Appointment.new(appointment_params)
         end
-
+        binding.pry
          if @appointment.save
             redirect_to appointment_path(@appointment)
         else

@@ -1,8 +1,9 @@
 class PatientsController < ApplicationController
+    before_action :require_login
+    before_action :find_patient, except: [:index, :new, :create]
 
     def index
         @patients = Patient.all
-        #ideally -> update this so patients are shown as: LASTNAME, FIRSTNAME, AGE
     end
 
     def new
@@ -19,11 +20,9 @@ class PatientsController < ApplicationController
     end
 
     def edit
-        find_patient
     end
 
     def update
-        find_patient
         if @patient.update(patient_params)
             redirect_to patient_path(@patient)
         else
@@ -32,7 +31,6 @@ class PatientsController < ApplicationController
     end
 
     def show
-        find_patient
     end
 
     private
